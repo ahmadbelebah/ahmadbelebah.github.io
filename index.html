@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>10 Textarea Keren</title>
+  <title>Textarea Salin</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -28,7 +29,7 @@
     .box {
       background: white;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       padding: 16px;
       display: flex;
       flex-direction: column;
@@ -50,7 +51,6 @@
       border: none;
       color: white;
       padding: 8px 12px;
-      text-align: center;
       font-size: 14px;
       border-radius: 6px;
       cursor: pointer;
@@ -62,37 +62,67 @@
     }
 
     @media (max-width: 600px) {
-      textarea {
-        font-size: 16px;
-      }
-
       button {
         width: 100%;
-        margin-top: 5px;
       }
     }
   </style>
 </head>
+
 <body>
   <h1>10 Textarea Keren & Responsif</h1>
   <div class="container">
-    <!-- Loop 10 times -->
-    ${[...Array(10)].map((_, i) => `
-      <div class="box">
-        <textarea id="ta${i + 1}" placeholder="Masukkan teks di sini..."></textarea>
-        <button onclick="salin('ta${i + 1}')">Salin</button>
-      </div>
-    `).join('')}
+    <div class="box">
+      <textarea id="ta1" placeholder="Masukkan teks..."></textarea>
+      <button onclick="salin('ta1')">Salin</button>
+    </div>
+    <div class="box">
+      <textarea id="ta2" placeholder="Masukkan teks..."></textarea>
+      <button onclick="salin('ta2')">Salin</button>
+    </div>
+    <div class="box">
+      <textarea id="ta3" placeholder="Masukkan teks..."></textarea>
+      <button onclick="salin('ta3')">Salin</button>
+    </div>
+    <div class="box">
+      <textarea id="ta4" placeholder="Masukkan teks..."></textarea>
+      <button onclick="salin('ta4')">Salin</button>
+    </div>
+    <div class="box">
+      <textarea id="ta5" placeholder="Masukkan teks..."></textarea>
+      <button onclick="salin('ta5')">Salin</button>
+    </div>
+    <div class="box">
+      <textarea id="ta6" placeholder="Masukkan teks..."></textarea>
+      <button onclick="salin('ta6')">Salin</button>
+    </div>
+    <div class="box">
+      <textarea id="ta7" placeholder="Masukkan teks..."></textarea>
+      <button onclick="salin('ta7')">Salin</button>
+    </div>
+    <div class="box">
+      <textarea id="ta8" placeholder="Masukkan teks..."></textarea>
+      <button onclick="salin('ta8')">Salin</button>
+    </div>
+    <div class="box">
+      <textarea id="ta9" placeholder="Masukkan teks..."></textarea>
+      <button onclick="salin('ta9')">Salin</button>
+    </div>
+    <div class="box">
+      <textarea id="ta10" placeholder="Masukkan teks..."></textarea>
+      <button onclick="salin('ta10')">Salin</button>
+    </div>
   </div>
 
   <script>
     function salin(id) {
       const textarea = document.getElementById(id);
       textarea.select();
-      textarea.setSelectionRange(0, 99999); // Untuk mobile
+      textarea.setSelectionRange(0, 99999);
       document.execCommand("copy");
-      alert("Teks disalin!");
+      alert("Teks disalin dari " + id);
     }
   </script>
 </body>
+
 </html>
