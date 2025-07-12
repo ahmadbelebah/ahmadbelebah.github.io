@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>01 - Langkah Positif</title>
+  <title>Textarea JSON + Toast + Nomor</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -44,8 +44,18 @@
       margin-bottom: 10px;
     }
 
-    button {
-      align-self: flex-end;
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .info-row span {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .info-row button {
       background-color: #4CAF50;
       border: none;
       color: white;
@@ -56,7 +66,7 @@
       transition: background-color 0.3s ease;
     }
 
-    button:hover {
+    .info-row button:hover {
       background-color: #45a049;
     }
 
@@ -95,7 +105,7 @@
 </head>
 
 <body>
-  <h1>01 - Langkah Positif</h1>
+  <h1>Textarea dari File JSON + Nomor & Toast</h1>
   <div class="container" id="textarea-container"></div>
 
   <div class="toast-container" id="toast-container"></div>
@@ -129,17 +139,26 @@
           textarea.placeholder = 'Masukkan teks...';
           textarea.value = value;
 
+          const infoRow = document.createElement('div');
+          infoRow.className = 'info-row';
+
+          const label = document.createElement('span');
+          label.innerText = '#' + (index + 1);
+
           const button = document.createElement('button');
           button.innerText = 'Salin';
           button.onclick = () => {
             textarea.select();
             textarea.setSelectionRange(0, 99999);
             document.execCommand("copy");
-            showToast('Teks berhasil disalin!');
+            showToast('Teks #' + (index + 1) + ' berhasil disalin!');
           };
 
+          infoRow.appendChild(label);
+          infoRow.appendChild(button);
+
           box.appendChild(textarea);
-          box.appendChild(button);
+          box.appendChild(infoRow);
           container.appendChild(box);
         });
       })
